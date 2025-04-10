@@ -92,4 +92,6 @@ ENV GROQ_API_KEY=${GROQ_API_KEY} \
     RUNNING_IN_DOCKER=true
 
 RUN mkdir -p ${WORKDIR}/run
-CMD pnpm run dev --host
+
+# Wipe Vite's broken dependency cache before starting dev server
+CMD rm -rf node_modules/.vite && pnpm run dev --host
