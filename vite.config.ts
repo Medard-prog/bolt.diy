@@ -91,6 +91,15 @@ export default defineConfig((config) => {
       __PKG_OPTIONAL_DEPENDENCIES: JSON.stringify(pkg.optionalDependencies),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     },
+	server: {
+      host: true,
+      port: 5173,
+      allowedHosts: [
+        'localhost',
+        '127.0.0.1',
+        'rggk40co0s8osw4sgs0oww44.147.93.122.101.sslip.io' // ← this is the domain Coolify gave you
+      ]
+    },
     build: {
       target: 'esnext',
     },
